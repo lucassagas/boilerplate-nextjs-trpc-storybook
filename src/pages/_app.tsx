@@ -1,3 +1,5 @@
+import GlobalStyles from '@/styles/GlobalStyles'
+import { trpc } from '@/utils/trpc'
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import { Router } from 'next/router'
@@ -29,12 +31,15 @@ Router.events.on('routeChangeError', () => {
   NProgress.done()
 })
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+function App({ Component, pageProps }: AppPropsWithLayout) {
   const CustomLayout = Component.layout ?? React.Fragment
 
   return (
     <CustomLayout>
+      <GlobalStyles />
       <Component {...pageProps} />
     </CustomLayout>
   )
 }
+
+export default trpc.withTRPC(App)
