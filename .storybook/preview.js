@@ -1,10 +1,11 @@
-import GlobalStyles from '../src/styles/GlobalStyles'
+import { themes } from '@storybook/theming'
+import GlobalStyle from '../src/styles/GlobalStyles'
 
 export const decorators = [
   (Story) => (
     <>
+      <GlobalStyle />
       <Story />
-      <GlobalStyles />
     </>
   ),
 ]
