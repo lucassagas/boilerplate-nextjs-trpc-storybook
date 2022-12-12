@@ -1,5 +1,6 @@
 import GlobalStyles from '@/styles/GlobalStyles'
 import { trpc } from '@/utils/trpc'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import { Router } from 'next/router'
@@ -38,6 +39,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
     <CustomLayout>
       <GlobalStyles />
       <Component {...pageProps} />
+      <ReactQueryDevtools initialIsOpen={false} />
     </CustomLayout>
   )
 }
